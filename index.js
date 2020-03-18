@@ -4,13 +4,13 @@ $(function(){
     var $mima=$('#mima');
     var $yzm=$('#yzm');
     var $reg=$('#reg');
-    var $reg1=$('#btn');
+    var $btnCal=$('#btn');
 
-    $reg.click(function(){
+    $btnCal.click(function(){
         if(!validate("#username")||!validate("#number")||!validate("#mima")||!validate("#yzm")) 
         return;
     });
-    $reg1.click(function(){
+    $btnCal.click(function(){
         $("#btn").attr("disabled",true);
         $("#yzm-valid").html("");
         var time=5;
