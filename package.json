@@ -3,26 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "grunt": "^1.0.4",
-    "grunt-contrib-htmlmin": "^3.1.0"
-  },
-  "devDependencies": {
-    "grunt-contrib-cssmin": "^3.0.0",
-    "grunt-contrib-uglify": "^4.0.1"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liitng3/register.git"
+    "test": "mocha"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/liitng3/register/issues"
+  "dependencies": {
+    "grunt-contrib-htmlmin": "^3.1.0"
   },
-  "homepage": "https://github.com/liitng3/register#readme"
+  "devDependencies": {
+    "grunt": "^1.1.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.1"
+  }
 }
