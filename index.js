@@ -6,7 +6,7 @@ $(function(){
     var $reg=$('#reg');
     var $btnCal=$('#btn');
 
-    $btnCal.click(function(){
+    $reg.click(function(){
         if(!validate("#username")||!validate("#number")||!validate("#mima")||!validate("#yzm")) 
         return;
     });
@@ -30,7 +30,7 @@ $(function(){
             }
             else {
                 if(time>=0){
-                    $("#btn").val((time--)+"s");
+                    $("#btn").val("发送中"+(time--)+"s");
                 }
             }
         }, 1000);
