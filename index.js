@@ -15,14 +15,14 @@ $(function(){
         $("#yzm-valid").html("");
         var time=5;
         var hander=setInterval(function() {
-            if (time <= 0 && $yzm.val()=='') {
+            if ($yzm.val()=='' && time <= 0) {
                 clearInterval(hander); 
                 $("#btn").val("获取验证码");
                 $("#yzm-valid").html("请求超时，请稍后再试");
                 $("#btn").attr("disabled",false);
                 return false;
             }
-            if (time <= 0 && $yzm.val()!=='') {
+            if ($yzm.val()!=='' && time <= 0) {
                 clearInterval(hander); 
                 $("#btn").val("获取验证码");
                 $("#btn").attr("disabled",false);
@@ -35,6 +35,7 @@ $(function(){
             }
         }, 1000);
     });
+    //字段校验
     $number.focusout(function(){
         if(!validate("#number")) $number.select();
     })
@@ -45,6 +46,8 @@ $(function(){
         if(!validate("#username")) $username.select();
     })
 
+
+    //表单校验
     function validate(a){
         var $data=$(a);
         var $msg=$(a+'-valid');
@@ -68,7 +71,7 @@ $(function(){
                 $data.select();
                 return false
             }   
-            if(/^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\d{8}$/.test($data.val())==false){
+            if(!/^[1][3,4,5,7,8,9][0-9]{9}$/.test($data.val())){
                 $msg.html("手机号码格式不正确");
                 $data.select();
                 return false
@@ -80,8 +83,8 @@ $(function(){
                 $data.select();
                 return false
             }  
-            if(/^[a-zA-Z]\w{5,17}$/.test($data.val())==false){
-                $msg.html("以字母开头，长度在6~18之间，只能包含字母、数字和下划线");
+            if(!/(?!^[0-9]+$)(?!^[A-z]+$)(?!^[^A-z0-9]+$)^[^\s\u4e00-\u9fa5]{8,14}$/.test($data.val())){
+                $msg.html("密码设置不符合要求");
                 $data.select();
                 return false
             } 
